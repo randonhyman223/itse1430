@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Nile
 {
-    class Class1
+    public class Product
     {
+        string Name = " ";
+        string Description;
+        decimal Price;
+        bool IsDiscontinued;
     }
 }
