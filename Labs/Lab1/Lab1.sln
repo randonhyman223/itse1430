@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandonHyman.MovieLib.Host", "RandonHyman.MovieLib.Host\RandonHyman.MovieLib.Host.csproj", "{29FF1637-100C-4E6D-8F55-EE395787FE2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandonHyman.MovieLib.Host", "RandonHyman.MovieLib.Host\RandonHyman.MovieLib.Host.csproj", "{8068A474-CF35-48AD-90A2-FA9C36FE3A0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{29FF1637-100C-4E6D-8F55-EE395787FE2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29FF1637-100C-4E6D-8F55-EE395787FE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29FF1637-100C-4E6D-8F55-EE395787FE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29FF1637-100C-4E6D-8F55-EE395787FE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8068A474-CF35-48AD-90A2-FA9C36FE3A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8068A474-CF35-48AD-90A2-FA9C36FE3A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8068A474-CF35-48AD-90A2-FA9C36FE3A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8068A474-CF35-48AD-90A2-FA9C36FE3A0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F409EE9F-948E-45A2-949F-404A4E92050E}
+		SolutionGuid = {6D89209A-4FB9-4E3F-9751-9D61D27C4641}
 	EndGlobalSection
 EndGlobal

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{29FF1637-100C-4E6D-8F55-EE395787FE2B}</ProjectGuid>
+    <ProjectGuid>{8068A474-CF35-48AD-90A2-FA9C36FE3A0F}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>RandonHyman.MovieLib.Host</RootNamespace>
     <AssemblyName>RandonHyman.MovieLib.Host</AssemblyName>
