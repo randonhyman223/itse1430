@@ -22,7 +22,13 @@ namespace Nile.Windows
             base.OnLoad(e);
 
             var product = new Product();
-            product.
+            product.Name = "Product A";
+            product.Description = "Product A";
+
+            var productB = new Product();
+            product.Name = "Product B";
+            productB.Description = product.Description;
+
         }
     }
 }

@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace Nile
 {
+  
+    /// <summary>Procides information about a product.</summary>
+
     public class Product
     {
-        string Name = " ";
-        string Description;
-        decimal Price;
-        bool IsDiscontinued;
+        internal decimal DiscountPercentage = 0.10M;
+
+        /// <summary>Name of the product.</summary>
+        public string Name = " ";
+        public string Description;
+        public decimal Price;
+        public bool IsDiscontinued;
     }
 }

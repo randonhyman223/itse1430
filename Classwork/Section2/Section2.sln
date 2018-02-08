@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nile.Windows", "Nile.Window
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nile", "Nile\Nile.csproj", "{D911C37B-47A9-4794-9383-73DC6663BA33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "..\HelloWorld\HelloWorld\HelloWorld.csproj", "{859CC735-3CD8-452F-8D2F-6077B9332066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,11 +23,15 @@ Global
 		{D911C37B-47A9-4794-9383-73DC6663BA33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D911C37B-47A9-4794-9383-73DC6663BA33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D911C37B-47A9-4794-9383-73DC6663BA33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{859CC735-3CD8-452F-8D2F-6077B9332066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{859CC735-3CD8-452F-8D2F-6077B9332066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{859CC735-3CD8-452F-8D2F-6077B9332066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{859CC735-3CD8-452F-8D2F-6077B9332066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {14CEB815-D732-4F20-98A7-F850A1815D82}
+		SolutionGuid = {513D90A8-B253-47A7-AA02-0F814748CACE}
 	EndGlobalSection
 EndGlobal
