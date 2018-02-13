@@ -22,11 +22,18 @@ namespace Nile.Windows
             base.OnLoad(e);
 
             var product = new Product();
+            Decimal.TryParse("123", out var price);
+            product.Price = price;
 
-            var name = product.GetName();
+            var name = product.Name;
             //product.Name = "Product A";
             product.SetName("Product A");
             //product.Description = "None";
+            product.Price = 50;
+            product.IsDiscontinued = true;
+
+            var price2 = product.ActualPrice;
+
             var error = product.ToString();
 
             var str = product.ToString();
