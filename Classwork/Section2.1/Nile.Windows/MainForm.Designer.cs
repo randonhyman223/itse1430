@@ -35,6 +35,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.HelpButton = true;
             this.Name = "MainForm";
             this.ResumeLayout(false);
 

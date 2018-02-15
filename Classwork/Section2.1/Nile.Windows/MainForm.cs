@@ -45,5 +45,9 @@ namespace Nile.Windows
             error = productB.Validate();
 
         }
-    }
+private void OnProductAdd ( object sender, EventArgs e)
+            {
+            MessageBox.Show("Not implemented");
+            }
+}
 }
