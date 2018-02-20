@@ -20,6 +20,8 @@ namespace Nile.Windows
 
             //PlayingWithProductMembers();
         }
+        Product p;
+        private Product _product;
 
         //Just a method to play around with members of our Product class
         private void PlayingWithProductMembers ()
@@ -67,8 +69,9 @@ namespace Nile.Windows
 
         private void OnFileExit( object sender, EventArgs e )
         {
-            MessageBox.Show(this, "Not implemented", "File Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            Close();
         }
+     
 
         private void OnProductAdd ( object sender, EventArgs e )
         {
@@ -86,10 +89,22 @@ namespace Nile.Windows
 
         private void OnProductEdit( object sender, EventArgs e )
         {
-            MessageBox.Show(this, "Not implemented", "Product Edit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (_product != null)
+            {
+                var form = new ProductDetailForm();
+                form.Text = "Edit Product";
+
+                //Show form modually
+                var result = form.ShowDialog(this);
+                if (result != DialogResult.OK)
+                    return;
+
+                //Editing the product
+                _product = form.Product;
+            }
         }
 
-        private void OnProductRemove( object sender, EventArgs e )
+        private void miRemove_Click( object sender, EventArgs e )
         {
             if (!ShowConfirmation("Are you sure?", "Remove Product"))                             
                 return;
@@ -111,6 +126,11 @@ namespace Nile.Windows
                            == DialogResult.Yes;
         }
 
-        private Product _product;
+     
+
+        private void fileToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+
+        }
     }
 }

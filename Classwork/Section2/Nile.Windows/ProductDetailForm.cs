@@ -19,6 +19,19 @@ namespace Nile.Windows
 
         #region Event Handlers
 
+        protected override void OnLoad( EventArgs e )
+        {
+            base.OnLoad(e);
+
+            //Load Product
+            if (Product != null)
+            {
+                _txtName.Text = Product.Name;
+                _txtDescription.Text = Product.Description;
+                _txtPrice.Text = Product.Price.ToString();
+
+            }
+        }
         private void OnCancel( object sender, EventArgs e )
         {
             //Don't need this method as DialogResult set on button
@@ -47,6 +60,26 @@ namespace Nile.Windows
                 return price;
 
             return -1;
+        }
+
+        private void _txtDescription_TextChanged( object sender, EventArgs e )
+        {
+
+        }
+
+        private void _txtName_TextChanged( object sender, EventArgs e )
+        {
+
+        }
+
+        private void _txtPrice_TextChanged( object sender, EventArgs e )
+        {
+
+        }
+
+        private void label2_Click( object sender, EventArgs e )
+        {
+
         }
     }
 }

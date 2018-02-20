@@ -49,7 +49,7 @@
             this.helpToolStripMenuItem});
             this._mainMenu.Location = new System.Drawing.Point(0, 0);
             this._mainMenu.Name = "_mainMenu";
-            this._mainMenu.Size = new System.Drawing.Size(707, 24);
+            this._mainMenu.Size = new System.Drawing.Size(523, 24);
             this._mainMenu.TabIndex = 0;
             this._mainMenu.Text = "menuStrip1";
             // 
@@ -60,11 +60,12 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // _miFileExit
             // 
             this._miFileExit.Name = "_miFileExit";
-            this._miFileExit.Size = new System.Drawing.Size(152, 22);
+            this._miFileExit.Size = new System.Drawing.Size(92, 22);
             this._miFileExit.Text = "E&xit";
             this._miFileExit.Click += new System.EventHandler(this.OnFileExit);
             // 
@@ -81,6 +82,8 @@
             // 
             // _miProductAdd
             // 
+            this._miProductAdd.Checked = true;
+            this._miProductAdd.CheckState = System.Windows.Forms.CheckState.Checked;
             this._miProductAdd.Name = "_miProductAdd";
             this._miProductAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
             this._miProductAdd.Size = new System.Drawing.Size(152, 22);
@@ -105,7 +108,6 @@
             this._miProductRemove.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this._miProductRemove.Size = new System.Drawing.Size(152, 22);
             this._miProductRemove.Text = "&Remove";
-            this._miProductRemove.Click += new System.EventHandler(this.OnProductRemove);
             // 
             // helpToolStripMenuItem
             // 
@@ -119,7 +121,7 @@
             // 
             this._miHelpAbout.Name = "_miHelpAbout";
             this._miHelpAbout.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this._miHelpAbout.Size = new System.Drawing.Size(152, 22);
+            this._miHelpAbout.Size = new System.Drawing.Size(126, 22);
             this._miHelpAbout.Text = "About";
             this._miHelpAbout.Click += new System.EventHandler(this.OnHelpAbout);
             // 
@@ -127,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 374);
+            this.ClientSize = new System.Drawing.Size(523, 478);
             this.Controls.Add(this._mainMenu);
             this.MainMenuStrip = this._mainMenu;
             this.Name = "MainForm";
