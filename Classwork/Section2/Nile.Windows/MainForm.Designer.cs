@@ -49,7 +49,7 @@
             this.helpToolStripMenuItem});
             this._mainMenu.Location = new System.Drawing.Point(0, 0);
             this._mainMenu.Name = "_mainMenu";
-            this._mainMenu.Size = new System.Drawing.Size(523, 24);
+            this._mainMenu.Size = new System.Drawing.Size(707, 24);
             this._mainMenu.TabIndex = 0;
             this._mainMenu.Text = "menuStrip1";
             // 
@@ -60,7 +60,6 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // _miFileExit
             // 
@@ -82,32 +81,31 @@
             // 
             // _miProductAdd
             // 
-            this._miProductAdd.Checked = true;
-            this._miProductAdd.CheckState = System.Windows.Forms.CheckState.Checked;
             this._miProductAdd.Name = "_miProductAdd";
             this._miProductAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this._miProductAdd.Size = new System.Drawing.Size(152, 22);
+            this._miProductAdd.Size = new System.Drawing.Size(141, 22);
             this._miProductAdd.Text = "&Add";
             this._miProductAdd.Click += new System.EventHandler(this.OnProductAdd);
             // 
             // _miProductEdit
             // 
             this._miProductEdit.Name = "_miProductEdit";
-            this._miProductEdit.Size = new System.Drawing.Size(152, 22);
+            this._miProductEdit.Size = new System.Drawing.Size(141, 22);
             this._miProductEdit.Text = "&Edit";
             this._miProductEdit.Click += new System.EventHandler(this.OnProductEdit);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(138, 6);
             // 
             // _miProductRemove
             // 
             this._miProductRemove.Name = "_miProductRemove";
             this._miProductRemove.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this._miProductRemove.Size = new System.Drawing.Size(152, 22);
+            this._miProductRemove.Size = new System.Drawing.Size(141, 22);
             this._miProductRemove.Text = "&Remove";
+            this._miProductRemove.Click += new System.EventHandler(this.OnProductRemove);
             // 
             // helpToolStripMenuItem
             // 
@@ -129,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 478);
+            this.ClientSize = new System.Drawing.Size(707, 374);
             this.Controls.Add(this._mainMenu);
             this.MainMenuStrip = this._mainMenu;
             this.Name = "MainForm";

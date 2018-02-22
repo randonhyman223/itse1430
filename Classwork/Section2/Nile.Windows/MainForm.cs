@@ -20,8 +20,6 @@ namespace Nile.Windows
 
             //PlayingWithProductMembers();
         }
-        Product p;
-        private Product _product;
 
         //Just a method to play around with members of our Product class
         private void PlayingWithProductMembers ()
@@ -71,11 +69,12 @@ namespace Nile.Windows
         {
             Close();
         }
-     
 
         private void OnProductAdd ( object sender, EventArgs e )
         {
-            var form = new ProductDetailForm();
+            var button = sender as ToolStripMenuItem;
+
+            var form = new ProductDetailForm("Add Product");
             form.Text = "Add Product";
 
             //Show form modally
@@ -89,28 +88,29 @@ namespace Nile.Windows
 
         private void OnProductEdit( object sender, EventArgs e )
         {
-            if (_product != null)
-            {
-                var form = new ProductDetailForm();
-                form.Text = "Edit Product";
+            if (_product == null)
+                return;
 
-                //Show form modually
-                var result = form.ShowDialog(this);
-                if (result != DialogResult.OK)
-                    return;
+            var form = new ProductDetailForm(_product);
+            //form.Text = "Edit Product";
+            //form.Product = _product;
 
-                //Editing the product
-                _product = form.Product;
-            }
+            //Show form modally
+            var result = form.ShowDialog(this);
+            if (result != DialogResult.OK)
+                return;
+
+            //"Editing" the product
+            _product = form.Product;
         }
 
-        private void miRemove_Click( object sender, EventArgs e )
+        private void OnProductRemove( object sender, EventArgs e )
         {
             if (!ShowConfirmation("Are you sure?", "Remove Product"))                             
                 return;
 
-            //TODO: Remove product
-            MessageBox.Show("Not implemented");
+            //Remove product
+            _product = null;
         }        
         
         private void OnHelpAbout( object sender, EventArgs e )
@@ -126,11 +126,6 @@ namespace Nile.Windows
                            == DialogResult.Yes;
         }
 
-     
-
-        private void fileToolStripMenuItem_Click( object sender, EventArgs e )
-        {
-
-        }
+        private Product _product;
     }
 }
