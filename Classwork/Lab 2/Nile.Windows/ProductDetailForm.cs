@@ -1,7 +1,12 @@
-﻿using System;
+﻿/* 
+ * Randon Hyman
+ * ITSE 1430
+ * Lab 2
+ */
+using System;
 using System.Windows.Forms;
 
-namespace Nile.Windows
+namespace MovieLib.Windows
 {
     /// <summary>Provides a form for adding/editing <see cref="Product"/>.</summary>
     public /*abstract*/ partial class ProductDetailForm : Form
@@ -32,22 +37,10 @@ namespace Nile.Windows
         /// <summary>Gets or sets the product being edited.</summary>
         public Product Product { get; set; }
 
-        //public abstract DialogResult ShowDialogEx();
-
-        //public virtual DialogResult ShowDialogEx ()
-        //{
-        //    return ShowDialog();
-        //}
-
         protected override void OnLoad( EventArgs e )
         {
-            //Call base type
-            //OnLoad(e);
             base.OnLoad(e);
 
-            //Load product
-            //Only use 'this' when you need the entire object
-            //if (this.Product != null)
             if (Product != null)
             {
                 _txtName.Text = Product.Name;
@@ -91,7 +84,6 @@ namespace Nile.Windows
             Product = product;
             DialogResult = DialogResult.OK;
 
-            //Setting this to None will prevent close if needed
             //DialogResult = DialogResult.None;
             Close();
         }
@@ -116,7 +108,7 @@ namespace Nile.Windows
 
             if (String.IsNullOrEmpty(textbox.Text))
             {
-                _errorProvider.SetError(textbox, "Name is required");
+                _errorProvider.SetError(textbox, "Title is required");
                 e.Cancel = true;
             } else
                 _errorProvider.SetError(textbox, "");
@@ -129,10 +121,19 @@ namespace Nile.Windows
             var price = ConvertToPrice(textbox);
             if (price < 0)
             {
-                _errorProvider.SetError(textbox, "Price must be >= 0");
+                _errorProvider.SetError(textbox, "Length must be >= 0");
                 e.Cancel = true;
             } else
                 _errorProvider.SetError(textbox, "");
+        }
+
+        private void ProductDetailForm_Load( object sender, EventArgs e )
+        {
+
+        }
+        private void label4_Click( object sender, EventArgs e )
+        {
+
         }
     }
 }

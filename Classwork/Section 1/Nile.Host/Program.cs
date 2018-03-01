@@ -54,7 +54,7 @@ namespace Nile.Host
             _description = ReadString("Enter optional description: ", false);
         }
 
-        //Read a decimal value
+        //Read a decimal valueasdasdasdsadsa
         private static decimal ReadDecimal( string message, decimal minValue )
         {
             do
