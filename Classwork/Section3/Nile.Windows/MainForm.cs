@@ -45,16 +45,16 @@ namespace Nile.Windows
             if (!String.IsNullOrEmpty(message))
                 MessageBox.Show(message);
 
+            RefreshUI();
             //Find empty array element
             //var index = FindEmptyProductIndex();
             //if (index >= 0)
-            //_products[index] = form.Product;
-            RefreshUI();
+            //_products[index] = form.Product;                    
         }
 
         private void OnProductEdit( object sender, EventArgs e )
         {
-            //get selected product
+            //Get selected product
             var product = GetSelectedProduct();
             if (product == null)
                 return;
@@ -75,6 +75,7 @@ namespace Nile.Windows
             _database.Edit(form.Product, out var message);
             if (!String.IsNullOrEmpty(message))
                 MessageBox.Show(message);
+
             RefreshUI();
         }
 
@@ -84,7 +85,7 @@ namespace Nile.Windows
             //if (index < 0)
             //  return;
 
-            //Get selected product
+            //Get the selected product
             var product = GetSelectedProduct();
             if (product == null)
                 return;
@@ -95,6 +96,7 @@ namespace Nile.Windows
             //Remove product
             _database.Remove(product.Id);
             //_products[index] = null;
+
             RefreshUI();
         }        
         
@@ -104,18 +106,21 @@ namespace Nile.Windows
         }
         #endregion
 
-        private Product GetSelectedProduct ()
+        private Product GetSelectedProduct ( )
         {
+            //Get the first selected row in the grid, if any
             if (dataGridView1.SelectedRows.Count > 0)
                 return dataGridView1.SelectedRows[0].DataBoundItem as Product;
 
             return null;
         }
+
         private void RefreshUI ()
         {
             //Get products
             var products = _database.GetAll();
             //products[0].Name = "Product A";
+            
             //Bind to grid
             dataGridView1.DataSource = products;
         }
