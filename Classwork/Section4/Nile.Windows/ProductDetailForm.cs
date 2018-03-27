@@ -119,10 +119,5 @@ namespace Nile.Windows
             } else
                 _errorProvider.SetError(textbox, "");
         }
-
-        private void label4_Click( object sender, EventArgs e )
-        {
-
-        }
     }
 }

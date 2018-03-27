@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this._errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,9 +78,9 @@
             this._chkIsDiscontinued.AutoSize = true;
             this._chkIsDiscontinued.Location = new System.Drawing.Point(81, 146);
             this._chkIsDiscontinued.Name = "_chkIsDiscontinued";
-            this._chkIsDiscontinued.Size = new System.Drawing.Size(60, 17);
+            this._chkIsDiscontinued.Size = new System.Drawing.Size(105, 17);
             this._chkIsDiscontinued.TabIndex = 3;
-            this._chkIsDiscontinued.Text = "Owned";
+            this._chkIsDiscontinued.Text = "Is Discontinued?";
             this._chkIsDiscontinued.UseVisualStyleBackColor = true;
             // 
             // _btnCancel
@@ -113,9 +112,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(37, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Title:";
+            this.label1.Text = "Name:";
             // 
             // label2
             // 
@@ -130,27 +129,16 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 123);
+            this.label3.Location = new System.Drawing.Point(41, 123);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Length:";
+            this.label3.Text = "Price:";
             // 
             // _errorProvider
             // 
             this._errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this._errorProvider.ContainerControl = this;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(187, 123);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "minutes";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // ProductDetailForm
             // 
@@ -159,7 +147,6 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.CancelButton = this._btnCancel;
             this.ClientSize = new System.Drawing.Size(315, 233);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -175,7 +162,7 @@
             this.Name = "ProductDetailForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Movie Details";
+            this.Text = "Product Details";
             ((System.ComponentModel.ISupportInitialize)(this._errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -194,6 +181,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider _errorProvider;
-        private System.Windows.Forms.Label label4;
     }
 }
