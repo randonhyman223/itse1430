@@ -6,23 +6,26 @@ using System.Threading.Tasks;
 
 namespace Nile.Data
 {
+    /// <summary>Provides extension methods for <see cref="IProductDatabase"/>.</summary>
     public static class ProductDatabaseExtensions
     {
+        /// <summary>Seeds the database.</summary>
+        /// <param name="source">The source.</param>
         public static void Seed ( this IProductDatabase source )
         {
             var message = "";
             source.Add(new Product() {
-                Name = "Scarface",
+                Name = "iPhone X",
                 IsDiscontinued = true,
-                Price = 180, }, out message);
+                Price = 1500, }, out message);
             source.Add(new Product() {
-                Name = "Goodfellas",
+                Name = "Windows Phone",
                 IsDiscontinued = true,
-                Price = 120, }, out message);
+                Price = 15, }, out message);
             source.Add(new Product() {
-                Name = "Deadpool",
+                Name = "Samsung S8",
                 IsDiscontinued = false,
-                Price = 120
+                Price = 800
             }, out message);
         }
     }

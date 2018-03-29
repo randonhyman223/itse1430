@@ -28,6 +28,7 @@ namespace Nile.Windows
 
         #region Event Handlers
 
+        //Called when a cell is double clicked
         private void OnCellDoubleClick( object sender, DataGridViewCellEventArgs e )
         {
             var product = GetSelectedProduct();
@@ -64,7 +65,7 @@ namespace Nile.Windows
         {
             var button = sender as ToolStripMenuItem;
 
-            var form = new ProductDetailForm("Add Product");
+            var form = new ProductDetailForm("Add Movie");
 
             //Show form modally
             var result = form.ShowDialog(this);
@@ -76,7 +77,7 @@ namespace Nile.Windows
             if (!String.IsNullOrEmpty(message))
                 MessageBox.Show(message);
 
-            RefreshUI();               
+            RefreshUI();                
         }
 
         private void OnProductEdit( object sender, EventArgs e )
@@ -85,7 +86,7 @@ namespace Nile.Windows
             var product = GetSelectedProduct();
             if (product == null)
             {
-                MessageBox.Show(this, "No product selected", "Error",
+                MessageBox.Show(this, "No movie selected", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             };
@@ -99,7 +100,7 @@ namespace Nile.Windows
             var product = GetSelectedProduct();
             if (product == null)
             {
-                MessageBox.Show(this, "No product selected", "Error",
+                MessageBox.Show(this, "No movie selected", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             };
@@ -118,7 +119,7 @@ namespace Nile.Windows
         //Helper method to handle deleting products
         private void DeleteProduct( Product product )
         {
-            if (!ShowConfirmation("Are you sure?", "Remove Product"))
+            if (!ShowConfirmation("Are you sure?", "Remove Movie"))
                 return;
 
             //Remove product
@@ -135,7 +136,7 @@ namespace Nile.Windows
             if (result != DialogResult.OK)
                 return;
 
-            //Update the product
+            //Update the movie
             form.Product.Id = product.Id;
             _database.Update(form.Product, out var message);
             if (!String.IsNullOrEmpty(message))
@@ -146,7 +147,7 @@ namespace Nile.Windows
 
         private Product GetSelectedProduct ( )
         {
-
+            //TODO: Use the binding source
             //Get the first selected row in the grid, if any
             if (dataGridView1.SelectedRows.Count > 0)
                 return dataGridView1.SelectedRows[0].DataBoundItem as Product;
@@ -156,9 +157,8 @@ namespace Nile.Windows
 
         private void RefreshUI ()
         {
-            //Get products
+            //Get movie
             var products = _database.GetAll();
-
             productBindingSource.DataSource = products.ToList(); 
         }
 

@@ -7,6 +7,7 @@ using System.Linq;
 
 namespace Nile.Data
 {
+    /// <summary>Provides a base implementation of <see cref="IProductDatabase"/>.</summary>
     public abstract class ProductDatabase : IProductDatabase
     {        
         public Product Add ( Product product, out string message )
@@ -14,7 +15,7 @@ namespace Nile.Data
             //Check for null
             if (product == null)
             {
-                message = "Movie cannot be null.";
+                message = "Product cannot be null.";
                 return null;
             };
 
@@ -32,18 +33,20 @@ namespace Nile.Data
             var existing = GetProductByNameCore(product.Name);
             if (existing != null)
             {
-                message = "Movie already exists.";
+                message = "Product already exists.";
                 return null;
             };
 
             message = null;
             return AddCore(product);
         }
-
         public IEnumerable<Product> GetAll ()
         {
             return GetAllCore();
         }        
+
+        /// <summary>Removes a product.</summary>
+        /// <param name="id">The product ID.</param>
         public void Remove ( int id )
         {
             //TODO: Return an error if id <= 0
@@ -66,7 +69,6 @@ namespace Nile.Data
             };
 
             //Validate product using IValidatableObject
-            //var error = product.Validate();
             var errors = ObjectValidator.Validate(product);
             if (errors.Count() > 0)
             {

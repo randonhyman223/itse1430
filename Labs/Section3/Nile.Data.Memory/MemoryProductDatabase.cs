@@ -11,7 +11,6 @@ namespace Nile.Data.Memory
     /// <summary>Provides an in-memory product database.</summary>
     public class MemoryProductDatabase : ProductDatabase
     {
-        
         protected override Product AddCore ( Product product )
         {
             // Clone the object
@@ -23,7 +22,8 @@ namespace Nile.Data.Memory
         }
 
         protected override Product GetCore( int id )
-        {           
+        {
+            //for (var index = 0; index < _products.Length; ++index)
             foreach (var product in _products)
             {
                 if (product.Id == id)
@@ -35,6 +35,7 @@ namespace Nile.Data.Memory
 
         protected override IEnumerable<Product> GetAllCore ()
         {
+            //Iterator syntax
             foreach (var product in _products)
             {
                 if (product != null)
@@ -54,7 +55,6 @@ namespace Nile.Data.Memory
             var existing = GetCore(product.Id);
 
             // Clone the object
-            //_products[existingIndex] = Clone(product);
             Copy(existing, product);
 
             //Return a copy
@@ -94,6 +94,7 @@ namespace Nile.Data.Memory
             target.IsDiscontinued = source.IsDiscontinued;
         }
 
+        //Find a product by its ID               
         private readonly List<Product> _products = new List<Product>();
         private int _nextId = 1;
 
