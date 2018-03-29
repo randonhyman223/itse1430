@@ -27,17 +27,8 @@ namespace Nile.Data
                 return null;
             };
 
-            //Validate product using IValidatableObject
+            //Validate product 
             var errors = product.Validate();
-            //var errors = ObjectValidator.Validate(product);
-            //if (errors.Count() > 0)
-            //{
-            //    var error = Enumerable.First(errors);
-
-            //    //Get first error                
-            //    message = errors.ElementAt(0).ErrorMessage;
-            //    return null;
-            //};
             var error = errors.FirstOrDefault();
             if (error != null)
             {
@@ -95,13 +86,12 @@ namespace Nile.Data
                 return null;
             };
 
-            //Validate product using IValidatableObject
-            //var error = product.Validate();
-            var errors = ObjectValidator.Validate(product);
-            if (errors.Count() > 0)
+            //Validate product 
+            var errors = product.Validate();
+            var error = errors.FirstOrDefault();
+            if (error != null)
             {
-                //Get first error
-                message = errors.ElementAt(0).ErrorMessage;
+                message = error.ErrorMessage;
                 return null;
             };
 

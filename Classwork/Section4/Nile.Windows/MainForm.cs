@@ -78,10 +78,6 @@ namespace Nile.Windows
                 MessageBox.Show(message);
 
             RefreshUI();
-            //Find empty array element
-            //var index = FindEmptyProductIndex();
-            //if (index >= 0)
-            //_products[index] = form.Product;                    
         }
 
         private void OnProductEdit( object sender, EventArgs e )
@@ -151,7 +147,6 @@ namespace Nile.Windows
 
         private Product GetSelectedProduct ( )
         {
-            //TODO: Use the binding source
             //Get the first selected row in the grid, if any
             if (dataGridView1.SelectedRows.Count > 0)
                 return dataGridView1.SelectedRows[0].DataBoundItem as Product;
@@ -163,13 +158,7 @@ namespace Nile.Windows
         {
             //Get products
             var products = _database.GetAll();
-            //products[0].Name = "Product A";
-
-            //Bind to grid
-            //productBindingSource.DataSource = new List<Product>(products);
-            //productBindingSource.DataSource = Enumerable.ToList(products);
             productBindingSource.DataSource = products.ToList();
-            //dataGridView1.DataSource 
         }
 
         private bool ShowConfirmation ( string message, string title )
