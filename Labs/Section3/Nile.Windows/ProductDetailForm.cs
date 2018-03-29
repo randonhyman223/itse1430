@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Randon Hyman
+ * ITSE 1430
+ * Lab 3
+ */
+using System;
 using System.Linq;
 using System.Windows.Forms;
 

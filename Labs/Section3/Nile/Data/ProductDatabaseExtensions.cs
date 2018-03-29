@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Randon Hyman
+ * ITSE 1430
+ * Lab 3
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +14,6 @@ namespace Nile.Data
     /// <summary>Provides extension methods for <see cref="IProductDatabase"/>.</summary>
     public static class ProductDatabaseExtensions
     {
-        /// <summary>Seeds the database.</summary>
-        /// <param name="source">The source.</param>
         public static void Seed ( this IProductDatabase source )
         {
             var message = "";

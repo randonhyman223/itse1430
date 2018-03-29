@@ -1,6 +1,7 @@
 ﻿/*
+ * Randon Hyman
  * ITSE 1430
- * Classwork
+ * Lab 3
  */
 using System;
 using System.Collections.Generic;
