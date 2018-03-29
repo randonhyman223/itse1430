@@ -7,7 +7,6 @@ using System.Linq;
 
 namespace Nile.Data
 {
-    /// <summary>Provides a base implementation of <see cref="IProductDatabase"/>.</summary>
     public abstract class ProductDatabase : IProductDatabase
     {        
         public Product Add ( Product product, out string message )
@@ -44,9 +43,6 @@ namespace Nile.Data
         {
             return GetAllCore();
         }        
-
-        /// <summary>Removes a product.</summary>
-        /// <param name="id">The product ID.</param>
         public void Remove ( int id )
         {
             //TODO: Return an error if id <= 0

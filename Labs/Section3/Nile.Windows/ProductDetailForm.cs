@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 namespace Nile.Windows
 {
-    /// <summary>Provides a form for adding/editing <see cref="Product"/>.</summary>
     public partial class ProductDetailForm : Form
     {
         #region Construction
@@ -19,7 +18,7 @@ namespace Nile.Windows
             Text = title;
         }
 
-        public ProductDetailForm( Product product ) :this("Edit Product")
+        public ProductDetailForm( Product product ) :this("Edit Movie")
         {
             Product = product;
         }
@@ -101,7 +100,7 @@ namespace Nile.Windows
             if (String.IsNullOrEmpty(textbox.Text))
             {
 
-                _errorProvider.SetError(textbox, "Name is required");
+                _errorProvider.SetError(textbox, "Title is required");
                 e.Cancel = true;
             } else
                 _errorProvider.SetError(textbox, "");
@@ -114,7 +113,7 @@ namespace Nile.Windows
             var price = ConvertToPrice(textbox);
             if (price < 0)
             {
-                _errorProvider.SetError(textbox, "Price must be >= 0");
+                _errorProvider.SetError(textbox, "Length must be >= 0");
                 e.Cancel = true;
             } else
                 _errorProvider.SetError(textbox, "");
