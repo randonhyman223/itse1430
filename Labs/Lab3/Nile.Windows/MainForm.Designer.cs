@@ -97,14 +97,14 @@
             this._miProductAdd.ShortcutKeys = System.Windows.Forms.Keys.Insert;
             this._miProductAdd.Size = new System.Drawing.Size(141, 22);
             this._miProductAdd.Text = "&Add";
-            this._miProductAdd.Click += new System.EventHandler(this.OnProductAdd);
+            this._miProductAdd.Click += new System.EventHandler(this.OnMovieAdd);
             // 
             // _miProductEdit
             // 
             this._miProductEdit.Name = "_miProductEdit";
             this._miProductEdit.Size = new System.Drawing.Size(141, 22);
             this._miProductEdit.Text = "&Edit";
-            this._miProductEdit.Click += new System.EventHandler(this.OnProductEdit);
+            this._miProductEdit.Click += new System.EventHandler(this.OnMovieEdit);
             // 
             // toolStripSeparator1
             // 
@@ -117,7 +117,7 @@
             this._miProductRemove.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this._miProductRemove.Size = new System.Drawing.Size(141, 22);
             this._miProductRemove.Text = "&Remove";
-            this._miProductRemove.Click += new System.EventHandler(this.OnProductRemove);
+            this._miProductRemove.Click += new System.EventHandler(this.OnMovieRemove);
             // 
             // helpToolStripMenuItem
             // 
@@ -188,7 +188,7 @@
             // 
             // priceDataGridViewTextBoxColumn
             // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Length";
             dataGridViewCellStyle2.Format = "N2";
             dataGridViewCellStyle2.NullValue = null;
             this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
@@ -218,7 +218,7 @@
             // 
             // productBindingSource
             // 
-            this.productBindingSource.DataSource = typeof(Nile.Product);
+            this.productBindingSource.DataSource = typeof(Nile.Movie);
             // 
             // MainForm
             // 

@@ -23,26 +23,26 @@ namespace Nile.Windows
             Text = title;
         }
 
-        public MovieDetailForm( Product product ) :this("Edit Movie")
+        public MovieDetailForm( Movie movie ) :this("Edit Movie")
         {
-            Product = product;
+            Movie = movie;
         }
         #endregion
 
-        /// <summary>Gets or sets the product being edited.</summary>
-        public Product Product { get; set; }
+        /// <summary>Gets or sets the movie being edited.</summary>
+        public Movie Movie { get; set; }
         
         protected override void OnLoad( EventArgs e )
         {
             base.OnLoad(e);
 
-            //Load product
-            if (Product != null)
+            //Load movie
+            if (Movie != null)
             {
-                _txtName.Text = Product.Name;
-                _txtDescription.Text = Product.Description;
-                _txtPrice.Text = Product.Price.ToString();
-                _chkIsDiscontinued.Checked = Product.IsDiscontinued;
+                _txtName.Text = Movie.Name;
+                _txtDescription.Text = Movie.Description;
+                _txtLength.Text = Movie.Length.ToString();
+                _chkIsDiscontinued.Checked = Movie.IsDiscontinued;
             };
 
             ValidateChildren();
@@ -60,16 +60,16 @@ namespace Nile.Windows
             if (!ValidateChildren())
                 return;
 
-            // Create product - using object initializer syntax
-            var product = new Product() {
+            // Create movie - using object initializer syntax
+            var movie = new Movie() {
                 Name = _txtName.Text,
                 Description = _txtDescription.Text,
-                Price = ConvertToPrice(_txtPrice),
+                Length = ConvertToLength(_txtLength),
                 IsDiscontinued = _chkIsDiscontinued.Checked,
             };
 
-            //Validate product using IValidatableObject
-            var errors = ObjectValidator.Validate(product);
+            //Validate movie using IValidatableObject
+            var errors = ObjectValidator.Validate(movie);
             if (errors.Count() > 0)
             {
                 //Get first error
@@ -78,7 +78,7 @@ namespace Nile.Windows
             };            
             
             //Return from form
-            Product = product;
+            Movie = movie;
             DialogResult = DialogResult.OK;
 
             Close();
@@ -90,10 +90,10 @@ namespace Nile.Windows
             MessageBox.Show(this, message, "Error", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
         }
-        private decimal ConvertToPrice ( TextBox control )
+        private decimal ConvertToLength ( TextBox control )
         {
-            if (Decimal.TryParse(control.Text, out var price))
-                return price;
+            if (Decimal.TryParse(control.Text, out var length))
+                return length;
 
             return -1;
         }
@@ -115,8 +115,8 @@ namespace Nile.Windows
         {
             var textbox = sender as TextBox;
 
-            var price = ConvertToPrice(textbox);
-            if (price < 0)
+            var length = ConvertToLength(textbox);
+            if (length < 0)
             {
                 _errorProvider.SetError(textbox, "Length must be >= 0");
                 e.Cancel = true;

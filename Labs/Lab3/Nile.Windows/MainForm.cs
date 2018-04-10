@@ -32,28 +32,28 @@ namespace Nile.Windows
         //Called when a cell is double clicked
         private void OnCellDoubleClick( object sender, DataGridViewCellEventArgs e )
         {
-            var product = GetSelectedProduct();
-            if (product == null)
+            var movie = GetSelectedMovie();
+            if (movie == null)
                 return;
 
-            EditProduct(product);
+            EditMovie(movie);
         }
 
         //Called when a key is pressed while in a cell
         private void OnCellKeyDown( object sender, KeyEventArgs e )
         {
-            var product = GetSelectedProduct();
-            if (product == null)
+            var movie = GetSelectedMovie();
+            if (movie == null)
                 return;
 
             if (e.KeyCode == Keys.Delete)
             {
                 e.Handled = true;
-                DeleteProduct(product);
+                DeleteMovie(movie);
             } else if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
-                EditProduct(product);
+                EditMovie(movie);
             };
         }
 
@@ -62,11 +62,11 @@ namespace Nile.Windows
             Close();
         }
 
-        private void OnProductAdd ( object sender, EventArgs e )
+        private void OnMovieAdd ( object sender, EventArgs e )
         {
             var button = sender as ToolStripMenuItem;
 
-            var form = new ProductDetailForm("Add Movie");
+            var form = new MovieDetailForm("Add Movie");
 
             //Show form modally
             var result = form.ShowDialog(this);
@@ -74,39 +74,39 @@ namespace Nile.Windows
                 return;
 
             //Add to database
-            _database.Add(form.Product, out var message);
+            _database.Add(form.Movie, out var message);
             if (!String.IsNullOrEmpty(message))
                 MessageBox.Show(message);
 
             RefreshUI();                
         }
 
-        private void OnProductEdit( object sender, EventArgs e )
+        private void OnMovieEdit( object sender, EventArgs e )
         {
-            //Get selected product
-            var product = GetSelectedProduct();
-            if (product == null)
+            //Get selected movies
+            var movie = GetSelectedMovie();
+            if (movie == null)
             {
                 MessageBox.Show(this, "No movie selected", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             };
 
-            EditProduct(product);
+            EditMovie(movie);
         }
 
-        private void OnProductRemove( object sender, EventArgs e )
+        private void OnMovieRemove( object sender, EventArgs e )
         {
-            //Get selected product
-            var product = GetSelectedProduct();
-            if (product == null)
+            //Get selected movies
+            var movie = GetSelectedMovie();
+            if (movie == null)
             {
                 MessageBox.Show(this, "No movie selected", "Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             };
 
-            DeleteProduct(product);
+            DeleteMovie(movie);
         }
         
         private void OnHelpAbout( object sender, EventArgs e )
@@ -117,40 +117,40 @@ namespace Nile.Windows
 
         #region Private Members
 
-        //Helper method to handle deleting products
-        private void DeleteProduct( Product product )
+        //Helper method to handle deleting movies
+        private void DeleteMovie( Movie movie )
         {
             if (!ShowConfirmation("Are you sure?", "Remove Movie"))
                 return;
 
-            //Remove product
-            _database.Remove(product.Id);
+            //Remove movie
+            _database.Remove(movie.Id);
 
             RefreshUI();
         }
 
-        //Helper method to handle editing products
-        private void EditProduct( Product product )
+        //Helper method to handle editing movies
+        private void EditMovie( Movie product )
         {
-            var form = new ProductDetailForm(product);
+            var form = new MovieDetailForm(product);
             var result = form.ShowDialog(this);
             if (result != DialogResult.OK)
                 return;
 
             //Update the movie
-            form.Product.Id = product.Id;
-            _database.Update(form.Product, out var message);
+            form.Movie.Id = product.Id;
+            _database.Update(form.Movie, out var message);
             if (!String.IsNullOrEmpty(message))
                 MessageBox.Show(message);
 
             RefreshUI();
         }
 
-        private Product GetSelectedProduct ( )
+        private Movie GetSelectedMovie ( )
         {
             //Get the first selected row in the grid, if any
             if (dataGridView1.SelectedRows.Count > 0)
-                return dataGridView1.SelectedRows[0].DataBoundItem as Product;
+                return dataGridView1.SelectedRows[0].DataBoundItem as Movie;
 
             return null;
         }
@@ -169,7 +169,7 @@ namespace Nile.Windows
                            == DialogResult.Yes;
         }
 
-        private IProductDatabase _database = new MemoryProductDatabase();
+        private IMovieDatabase _database = new MemoryProductDatabase();
     }
     #endregion;
 }

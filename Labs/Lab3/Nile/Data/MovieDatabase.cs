@@ -9,19 +9,19 @@ using System.Linq;
 
 namespace Nile.Data
 {
-    public abstract class ProductDatabase : IProductDatabase
+    public abstract class MovieDatabase : IMovieDatabase
     {        
-        public Product Add ( Product product, out string message )
+        public Movie Add ( Movie movie, out string message )
         {
             //Check for null
-            if (product == null)
+            if (movie == null)
             {
-                message = "Product cannot be null.";
+                message = "Movie cannot be null.";
                 return null;
             };
 
-            //Validate product using IValidatableObject
-            var errors = product.Validate();
+            //Validate movie using IValidatableObject
+            var errors = movie.Validate();
             
             var error = errors.FirstOrDefault();
             if (error != null)
@@ -30,18 +30,18 @@ namespace Nile.Data
                 return null;
             };
 
-            // Verify unique product
-            var existing = GetProductByNameCore(product.Name);
+            // Verify unique movie
+            var existing = GetMovieByNameCore(movie.Name);
             if (existing != null)
             {
-                message = "Product already exists.";
+                message = "Movie already exists.";
                 return null;
             };
 
             message = null;
-            return AddCore(product);
+            return AddCore(movie);
         }
-        public IEnumerable<Product> GetAll ()
+        public IEnumerable<Movie> GetAll ()
         {
             return GetAllCore();
         }        
@@ -55,19 +55,19 @@ namespace Nile.Data
             };
         }
 
-        public Product Update ( Product product, out string message )
+        public Movie Update ( Movie movie, out string message )
         {
             message = "";
 
             //Check for null
-            if (product == null)
+            if (movie == null)
             {
                 message = "Movie cannot be null.";
                 return null;
             };
 
-            //Validate product using IValidatableObject
-            var errors = ObjectValidator.Validate(product);
+            //Validate movie using IValidatableObject
+            var errors = ObjectValidator.Validate(movie);
             if (errors.Count() > 0)
             {
                 //Get first error
@@ -75,30 +75,30 @@ namespace Nile.Data
                 return null;
             };
 
-            // Verify unique product
-            var existing = GetProductByNameCore(product.Name);
-            if (existing != null && existing.Id != product.Id)
+            // Verify unique movie
+            var existing = GetMovieByNameCore(movie.Name);
+            if (existing != null && existing.Id != movie.Id)
             {
                 message = "Movie already exists.";
                 return null;
             };
 
             //Find existing
-            existing = existing ?? GetCore(product.Id);
+            existing = existing ?? GetCore(movie.Id);
             if (existing == null)
             {
                 message = "Movie not found.";
                 return null;
             };
 
-            return UpdateCore(product);
+            return UpdateCore(movie);
         }
 
-        protected abstract Product AddCore( Product product );
-        protected abstract IEnumerable<Product> GetAllCore();
-        protected abstract Product GetCore( int id );
+        protected abstract Movie AddCore( Movie movie );
+        protected abstract IEnumerable<Movie> GetAllCore();
+        protected abstract Movie GetCore( int id );
         protected abstract void RemoveCore( int id );
-        protected abstract Product UpdateCore( Product product );
-        protected abstract Product GetProductByNameCore( string name );
+        protected abstract Movie UpdateCore( Movie product );
+        protected abstract Movie GetMovieByNameCore( string name );
     }
 }

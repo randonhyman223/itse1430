@@ -8,14 +8,14 @@ using System.Collections.Generic;
 namespace Nile.Data
 {
     /// <summary>Provides access to products.</summary>
-    public interface IProductDatabase
+    public interface IMovieDatabase
     {
-        Product Add( Product movie, out string message );
+        Movie Add( Movie movie, out string message );
 
-        IEnumerable<Product> GetAll();
+        IEnumerable<Movie> GetAll();
 
         void Remove( int id );
 
-        Product Update( Product movie, out string message );                
+        Movie Update( Movie movie, out string message );                
     }
 }

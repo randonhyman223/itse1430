@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this._txtName = new System.Windows.Forms.TextBox();
             this._txtDescription = new System.Windows.Forms.TextBox();
-            this._txtPrice = new System.Windows.Forms.TextBox();
+            this._txtLength = new System.Windows.Forms.TextBox();
             this._chkIsDiscontinued = new System.Windows.Forms.CheckBox();
             this._btnCancel = new System.Windows.Forms.Button();
             this._btnSave = new System.Windows.Forms.Button();
@@ -64,14 +64,14 @@
             this._txtDescription.Size = new System.Drawing.Size(193, 53);
             this._txtDescription.TabIndex = 1;
             // 
-            // _txtPrice
+            // _txtLength
             // 
-            this._txtPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this._txtPrice.Location = new System.Drawing.Point(81, 120);
-            this._txtPrice.Name = "_txtPrice";
-            this._txtPrice.Size = new System.Drawing.Size(100, 20);
-            this._txtPrice.TabIndex = 2;
-            this._txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this._txtPrice_Validating);
+            this._txtLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this._txtLength.Location = new System.Drawing.Point(81, 120);
+            this._txtLength.Name = "_txtLength";
+            this._txtLength.Size = new System.Drawing.Size(100, 20);
+            this._txtLength.TabIndex = 2;
+            this._txtLength.Validating += new System.ComponentModel.CancelEventHandler(this._txtPrice_Validating);
             // 
             // _chkIsDiscontinued
             // 
@@ -166,7 +166,7 @@
             this.Controls.Add(this._btnSave);
             this.Controls.Add(this._btnCancel);
             this.Controls.Add(this._chkIsDiscontinued);
-            this.Controls.Add(this._txtPrice);
+            this.Controls.Add(this._txtLength);
             this.Controls.Add(this._txtDescription);
             this.Controls.Add(this._txtName);
             this.MaximizeBox = false;
@@ -186,7 +186,7 @@
 
         private System.Windows.Forms.TextBox _txtName;
         private System.Windows.Forms.TextBox _txtDescription;
-        private System.Windows.Forms.TextBox _txtPrice;
+        private System.Windows.Forms.TextBox _txtLength;
         private System.Windows.Forms.CheckBox _chkIsDiscontinued;
         private System.Windows.Forms.Button _btnCancel;
         private System.Windows.Forms.Button _btnSave;

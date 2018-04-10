@@ -11,24 +11,24 @@ using System.Threading.Tasks;
 
 namespace Nile.Data
 {
-    /// <summary>Provides extension methods for <see cref="IProductDatabase"/>.</summary>
-    public static class ProductDatabaseExtensions
+    /// <summary>Provides extension methods for <see cref="IMovieDatabase"/>.</summary>
+    public static class MovieDatabaseExtensions
     {
-        public static void Seed ( this IProductDatabase source )
+        public static void Seed ( this IMovieDatabase source )
         {
             var message = "";
-            source.Add(new Product() {
-                Name = "iPhone X",
+            source.Add(new Movie() {
+                Name = "Scarface",
                 IsDiscontinued = true,
-                Price = 1500, }, out message);
-            source.Add(new Product() {
-                Name = "Windows Phone",
+                Length = 1500, }, out message);
+            source.Add(new Movie() {
+                Name = "Deadpool",
                 IsDiscontinued = true,
-                Price = 15, }, out message);
-            source.Add(new Product() {
-                Name = "Samsung S8",
+                Length = 15, }, out message);
+            source.Add(new Movie() {
+                Name = "Seven",
                 IsDiscontinued = false,
-                Price = 800
+                Length = 800
             }, out message);
         }
     }

@@ -1,4 +1,5 @@
 ﻿/*
+ * Randon Hyman
  * ITSE 1430
  * Classwork
  */
@@ -9,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Nile
 {
     /// <summary>Provides information about a product.</summary>
-    public class Product : IValidatableObject
+    public class Movie : IValidatableObject
     {   
         /// <summary>Gets or sets the product ID.</summary>
         public int Id { get; set; }
@@ -30,17 +31,17 @@ namespace Nile
         }
         
         /// <summary>Gets or sets the price.</summary>
-        public decimal Price { get; set; }
+        public decimal Length { get; set; }
 
         /// <summary>Gets the price, with any discontinued discounts.</summary>
-        public decimal ActualPrice
+        public decimal ActualLength
         {
             get 
             {
                 if (IsDiscontinued)
-                    return Price - (Price * DiscountPercentage);
+                    return Length - (Length * DiscountPercentage);
 
-                return Price;
+                return Length;
             }
         }
 
@@ -59,10 +60,10 @@ namespace Nile
                 errors.Add(new ValidationResult("Name cannot be empty", 
                              new[] { nameof(Name) }));
 
-            //Price >= 0
-            if (Price < 0)
-                errors.Add(new ValidationResult("Price must be >= 0",
-                            new[] { nameof(Price) }));
+            //Length >= 0
+            if (Length < 0)
+                errors.Add(new ValidationResult("Length must be >= 0",
+                            new[] { nameof(Length) }));
 
             return errors;
         }
