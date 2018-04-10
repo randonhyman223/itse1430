@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Nile.Data
 {
-    /// <summary>Provides access to products.</summary>
+    /// <summary>Provides access to movies.</summary>
     public interface IMovieDatabase
     {
         Movie Add( Movie movie, out string message );
